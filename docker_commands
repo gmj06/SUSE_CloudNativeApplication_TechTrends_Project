@@ -2,7 +2,7 @@
 
 # TODO: insert the docker build command
 
-docker build -t techtrends ../
+docker build -t techtrends .
 
 ## Docker commands used to run the application
 
@@ -14,50 +14,34 @@ docker run -d -p 7111:3111 techtrends
 
 # TODO: insert the docker logs command
 
-docker logs 2ea4c2d4e042
+docker logs 41d08365f2b9
 
 ## Logs from the container running the TechTrends application
 
 # TODO: paste logs from the Docker container
 
 - Serving Flask app "app" (lazy loading)
-
 - Environment: production
-
-WARNING: This is a development server. Do not use it in a production deployment.
-
-Use a production WSGI server instead.
-
+  WARNING: This is a development server. Do not use it in a production deployment.
+  Use a production WSGI server instead.
 - Debug mode: off
-
-INFO:werkzeug - - 09/22/2021 05:35:42 AM \* Running on http://0.0.0.0:3111/ (Press CTRL+C to quit)
-
-INFO:app - - 09/22/2021 05:40:09 AM TechTrends started successfully!
-
-INFO:werkzeug - - 09/22/2021 05:40:09 AM 172.17.0.1 - - [22/Sep/2021 05:40:09] "GET / HTTP/1.1" 200 -
-
-INFO:app - - 09/22/2021 05:40:15 AM The "About Us" page is retrieved!
-
-INFO:werkzeug - - 09/22/2021 05:40:15 AM 172.17.0.1 - - [22/Sep/2021 05:40:15] "GET /about HTTP/1.1" 200 -
-
-INFO:app - - 09/22/2021 05:40:22 AM Article "CNCF Cloud Native Definition v1.0" retrieved!
-
-INFO:werkzeug - - 09/22/2021 05:40:22 AM 172.17.0.1 - - [22/Sep/2021 05:40:22] "GET /5 HTTP/1.1" 200 -
-
-INFO:werkzeug - - 09/22/2021 05:40:30 AM 172.17.0.1 - - [22/Sep/2021 05:40:30] "GET /create HTTP/1.1" 200 -
-
-INFO:app - - 09/22/2021 05:40:45 AM Article "testing logs" created succesfully!
-
-INFO:werkzeug - - 09/22/2021 05:40:45 AM 172.17.0.1 - - [22/Sep/2021 05:40:45] "POST /create HTTP/1.1" 302 -
-
-INFO:app - - 09/22/2021 05:40:45 AM TechTrends started successfully!
-
-INFO:werkzeug - - 09/22/2021 05:40:45 AM 172.17.0.1 - - [22/Sep/2021 05:40:45] "GET / HTTP/1.1" 200 -
-
-INFO:app - - 09/22/2021 05:40:58 AM HealthCheck request successful!
-
-INFO:werkzeug - - 09/22/2021 05:40:58 AM 172.17.0.1 - - [22/Sep/2021 05:40:58] "GET /healthz HTTP/1.1" 200 -
-
-INFO:app - - 09/22/2021 05:41:05 AM Metrics request successful!
-
-INFO:werkzeug - - 09/22/2021 05:41:05 AM 172.17.0.1 - - [22/Sep/2021 05:41:05] "GET /metrics HTTP/1.1" 200 -
+  INFO:werkzeug - - 09/25/2021 02:10:07 PM \* Running on http://0.0.0.0:3111/ (Press CTRL+C to quit)
+  INFO:app - - 09/25/2021 02:10:35 PM TechTrends started successfully!
+  INFO:werkzeug - - 09/25/2021 02:10:35 PM 172.17.0.1 - - [25/Sep/2021 14:10:35] "GET / HTTP/1.1" 200 -
+  INFO:app - - 09/25/2021 02:10:57 PM HealthCheck request successful!
+  INFO:werkzeug - - 09/25/2021 02:10:57 PM 172.17.0.1 - - [25/Sep/2021 14:10:57] "GET /healthz HTTP/1.1" 200 -
+  INFO:app - - 09/25/2021 02:11:04 PM Metrics request successful!
+  INFO:werkzeug - - 09/25/2021 02:11:04 PM 172.17.0.1 - - [25/Sep/2021 14:11:04] "GET /metrics HTTP/1.1" 200 -
+  INFO:werkzeug - - 09/25/2021 02:11:13 PM 172.17.0.1 - - [25/Sep/2021 14:11:13] "GET /create HTTP/1.1" 200 -
+  INFO:app - - 09/25/2021 02:11:21 PM Article "testing" created succesfully!
+  INFO:werkzeug - - 09/25/2021 02:11:21 PM 172.17.0.1 - - [25/Sep/2021 14:11:21] "POST /create HTTP/1.1" 302 -
+  INFO:app - - 09/25/2021 02:11:21 PM TechTrends started successfully!
+  INFO:werkzeug - - 09/25/2021 02:11:21 PM 172.17.0.1 - - [25/Sep/2021 14:11:21] "GET / HTTP/1.1" 200 -
+  INFO:app - - 09/25/2021 02:11:32 PM Article "testing" retrieved!
+  INFO:werkzeug - - 09/25/2021 02:11:32 PM 172.17.0.1 - - [25/Sep/2021 14:11:32] "GET /7 HTTP/1.1" 200 -
+  ERROR:app - - 09/25/2021 02:11:37 PM Article 9 not found
+  INFO:werkzeug - - 09/25/2021 02:11:37 PM 172.17.0.1 - - [25/Sep/2021 14:11:37] "GET /9 HTTP/1.1" 404 -
+  INFO:app - - 09/25/2021 02:11:41 PM The "About Us" page is retrieved!
+  INFO:werkzeug - - 09/25/2021 02:11:41 PM 172.17.0.1 - - [25/Sep/2021 14:11:41] "GET /about HTTP/1.1" 200 -
+  INFO:app - - 09/25/2021 02:11:52 PM Article "2020 CNCF Annual Report" retrieved!
+  INFO:werkzeug - - 09/25/2021 02:11:52 PM 172.17.0.1 - - [25/Sep/2021 14:11:52] "GET /1 HTTP/1.1" 200 -

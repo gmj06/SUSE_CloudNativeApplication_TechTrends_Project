@@ -116,7 +116,7 @@ if __name__ == "__main__":
         logging.root.removeHandler(handler)
 
     #Set up logger
-    logger = logging.getLogger(__name__)
+    logger = logging.getLogger("techtrends_logs")
     #Set loglevel to an Environment Variable
     loglevel = os.getenv("TECHTRENDS_LOGLEVEL", "DEBUG").upper()
 
