@@ -12,6 +12,6 @@ spec:
     helm:
       valueFiles:
         - values-prod.yaml
-    path: helm
+    path: tree/main/helm
     repoURL: https://github.com/gmj06/SUSE_CloudNativeApplication_TechTrends_Project/
     targetRevision: HEAD
