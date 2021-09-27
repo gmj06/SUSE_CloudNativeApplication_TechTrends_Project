@@ -1,8 +1,7 @@
-{{! prettier-ignore }}
 apiVersion: v1
 kind: Namespace
 metadata:
   creationTimestamp: null
-  name: {{ .Values.namespace.name }}
+  name: { { .Values.namespace.name } }
 spec: {}
 status: {}

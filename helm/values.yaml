@@ -6,7 +6,7 @@ namespace:
 
 ## define the image to execute with the Deployment
 image:
-  repository: gmj06/techtrends
+  repository: techtrends
   tag: latest
   pullPolicy: IfNotPresent
 
