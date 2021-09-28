@@ -13,9 +13,13 @@ app.config['DB_CONNECTION_COUNT'] = 0
 # Function to get a database connection.
 # This function connects to database with the name `database.db`
 def get_db_connection():
-    connection = sqlite3.connect('database.db')
-    connection.row_factory = sqlite3.Row
-    app.config['DB_CONNECTION_COUNT'] += 1
+    try:
+        connection = sqlite3.connect('database.db')
+        connection.row_factory = sqlite3.Row
+        app.config['DB_CONNECTION_COUNT'] += 1
+    except sqlite3.Error:
+        return None
+
     return connection
 
 # Function to get a post using its ID
@@ -31,27 +35,14 @@ def get_post(post_id):
 # Define Healthcheck endpoint
 @app.route('/healthz')
 def healthchecks():
-    try:
-        connection = get_db_connection()
-        tables_lst = connection.execute('SELECT tableName FROM sqlite_master WHERE  type = "table"  AND  tableName="posts"').fetchall()
-        connection.close()
-        if connection == None or tables_lst == []:
-            result_text = "ERROR - unhealthy"
-            result_status = 500
-        else:
-            result_text = "OK - healthy"
-            result_status = 200 
-            app.logger.info('HealthCheck request successful!')
-    except sqlite3.Error:
-        result_text = "ERROR - unhealthy"
-        result_status = 500
-
     response = app.response_class(
-        response=json.dumps({"result": result_text}),
-        status = result_status,
+        response=json.dumps({"result": "OK - healthy"}),
+        status = 200,
         mimetype='application/json'
     )
+    app.logger.info('HealthCheck request successful!')
     return response
+    
 
 # Define Metrics endpoint
 @app.route('/metrics')
