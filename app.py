@@ -1,4 +1,5 @@
 import sqlite3
+from sqlite3.dbapi2 import Error
 
 from flask import Flask, jsonify, json, render_template, request, url_for, redirect, flash
 from werkzeug.exceptions import abort
@@ -30,12 +31,26 @@ def get_post(post_id):
 # Define Healthcheck endpoint
 @app.route('/healthz')
 def healthchecks():
+    try:
+        connection = get_db_connection()
+        postone = connection.execute('SELECT top 1 * FROM posts').fetchone()
+        connection.close()
+        if connection == None or postone == None:
+            result_text = "ERROR - unhealthy"
+            result_status = 500
+        else:
+            result_text = "OK - healthy"
+            result_status = 200 
+            app.logger.info('HealthCheck request successful!')
+    except sqlite3.Error:
+        result_text = "ERROR - unhealthy"
+        result_status = 500
+
     response = app.response_class(
-        response=json.dumps({"result": "OK - healthy"}),
-        status = 200,
+        response=json.dumps({"result": result_text}),
+        status = result_status,
         mimetype='application/json'
     )
-    app.logger.info('HealthCheck request successful!')
     return response
 
 # Define Metrics endpoint
