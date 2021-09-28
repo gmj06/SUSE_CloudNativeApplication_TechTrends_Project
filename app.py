@@ -33,9 +33,9 @@ def get_post(post_id):
 def healthchecks():
     try:
         connection = get_db_connection()
-        postone = connection.execute('SELECT top 1 * FROM posts').fetchone()
+        tables_lst = connection.execute('SELECT tableName FROM sqlite_master WHERE  type = "table"  AND  tableName="posts"').fetchall()
         connection.close()
-        if connection == None or postone == None:
+        if connection == None or tables_lst == []:
             result_text = "ERROR - unhealthy"
             result_status = 500
         else:
